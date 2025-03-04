@@ -1,0 +1,101 @@
+@use "../variables" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($primary-color, 0.95);
+  padding: 1rem 2rem;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba($border-color, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    font-family: $font-heading;
+    font-size: 1.8rem;
+    color: $secondary-color;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  &__menu-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1001;
+
+    @media (max-width: $breakpoint-mobile) {
+      display: block;
+    }
+  }
+
+  &__menu-icon {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: $text-color;
+    position: relative;
+    transition: background-color 0.3s;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: $text-color;
+      transition: transform 0.3s;
+    }
+
+    &::before {
+      transform: translateY(-8px);
+    }
+
+    &::after {
+      transform: translateY(8px);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    &-link {
+      color: $text-color;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 400px;
+      height: 100vh;
+      background-color: rgba($primary-color, 0.98);
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+      transition: right 0.3s ease;
+      backdrop-filter: blur(10px);
+
+      &--open {
+        right: 0;
+      }
+    }
+  }
+}

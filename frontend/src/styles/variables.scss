@@ -1,0 +1,23 @@
+@use "sass:color";
+// Colors
+$primary-color: #1e1e1e;
+$secondary-color: #ff4c29;
+$text-color: #ffffff;
+$background-color: #121212;
+$input-background: #2a2a2a;
+$border-color: #333333;
+
+// Breakpoints
+$breakpoint-mobile: 768px;
+
+// Fonts
+@font-face {
+  font-family: "Game Of Squids";
+  src: url("https://your-cdn-url/GameOfSquids.woff2") format("woff2"), url("https://your-cdn-url/GameOfSquids.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+$font-heading: "Game Of Squids", "Orbitron", sans-serif;
+$font-body: "Poppins", sans-serif;

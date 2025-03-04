@@ -1,0 +1,154 @@
+@use "../variables" as *;
+@use "../animations" as *;
+
+.tournament-card {
+  background-color: $primary-color;
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba($border-color, 0.3);
+  @include hover-lift;
+  animation: scaleIn 0.3s ease forwards;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__game {
+    font-size: 1.4rem;
+    color: $text-color;
+    margin: 0;
+    transition: color 0.3s ease;
+  }
+
+  &__status {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &.status--open {
+      background-color: rgba(#4caf50, 0.2);
+      color: #4caf50;
+    }
+
+    &.status--full {
+      background-color: rgba(#f44336, 0.2);
+      color: #f44336;
+    }
+
+    &.status--ongoing {
+      background-color: rgba(#2196f3, 0.2);
+      color: #2196f3;
+    }
+
+    &.status--ended {
+      background-color: rgba(#9e9e9e, 0.2);
+      color: #9e9e9e;
+    }
+  }
+
+  &__info {
+    margin-bottom: 1.5rem;
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      color: rgba($text-color, 0.8);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateX(5px);
+      }
+
+      i {
+        font-size: 1.2rem;
+        width: 20px;
+        color: $secondary-color;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover i {
+        transform: scale(1.2);
+      }
+
+      .players-info {
+        flex: 1;
+
+        span {
+          display: block;
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 6px;
+    background-color: rgba($text-color, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+
+    &__fill {
+      height: 100%;
+      background-color: $secondary-color;
+      border-radius: 3px;
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transform: translateX(-100%);
+        animation: shimmer 2s infinite;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+
+    .btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+
+      i {
+        transition: transform 0.3s ease;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &:hover {
+    .tournament-card__actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

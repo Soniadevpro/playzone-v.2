@@ -1,0 +1,253 @@
+@use "../variables" as *;
+
+.dashboard {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .profile-image {
+      position: relative;
+      width: 120px;
+      height: 120px;
+
+      img,
+      &__placeholder {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: $primary-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: rgba($text-color, 0.5);
+      }
+
+      &__edit {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: $secondary-color;
+        border: none;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $text-color;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken($secondary-color, 10%);
+        }
+      }
+    }
+
+    .profile-info {
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .profile-email {
+        color: rgba($text-color, 0.7);
+        margin-bottom: 0.5rem;
+      }
+
+      .profile-type {
+        display: inline-block;
+        background-color: $secondary-color;
+        padding: 0.3rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    .stat-card {
+      background-color: $primary-color;
+      padding: 2rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      i {
+        font-size: 2rem;
+        color: $secondary-color;
+      }
+
+      .stat-info {
+        .stat-value {
+          display: block;
+          font-size: 1.8rem;
+          font-weight: bold;
+          margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+          color: rgba($text-color, 0.7);
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+
+  &__sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+  }
+
+  &__section {
+    background-color: $primary-color;
+    padding: 2rem;
+    border-radius: 10px;
+
+    h2 {
+      margin-bottom: 1.5rem;
+      color: $secondary-color;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.matches-list {
+  .match-card {
+    background-color: rgba($background-color, 0.5);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .match-info {
+      .match-game {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 0.3rem;
+      }
+
+      .match-result {
+        font-size: 0.9rem;
+        padding: 0.2rem 0.8rem;
+        border-radius: 15px;
+
+        &.victoire {
+          background-color: rgba(green, 0.2);
+          color: lightgreen;
+        }
+
+        &.défaite {
+          background-color: rgba(red, 0.2);
+          color: lightcoral;
+        }
+      }
+    }
+
+    .match-details {
+      text-align: right;
+
+      .match-date {
+        display: block;
+        color: rgba($text-color, 0.7);
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .match-position {
+        color: $secondary-color;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.profile-details {
+  .profile-detail {
+    margin-bottom: 1rem;
+
+    .detail-label {
+      display: block;
+      color: rgba($text-color, 0.7);
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .detail-value {
+      font-weight: 500;
+    }
+  }
+}
+
+.tournaments-list {
+  .tournament-card {
+    background-color: rgba($background-color, 0.5);
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+
+    .tournament-info {
+      margin-bottom: 1rem;
+
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .tournament-date {
+        color: rgba($text-color, 0.7);
+        font-size: 0.9rem;
+      }
+    }
+
+    .tournament-details {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+
+      .tournament-participants {
+        color: rgba($text-color, 0.8);
+      }
+
+      .tournament-status {
+        color: $secondary-color;
+      }
+
+      .tournament-winner {
+        color: gold;
+
+        i {
+          margin-right: 0.3rem;
+        }
+      }
+    }
+
+    .tournament-actions {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}

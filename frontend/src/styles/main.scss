@@ -1,0 +1,18 @@
+// Base
+@use "variables" as *; // Pas de ../ car dans le même dossier
+@use "animations" as *;
+@use "reset" as *;
+
+// Components
+@use "./components/header";
+@use "./components/buttons";
+@use "./components/footer";
+@use "./components/tournament-card";
+
+// Pages
+@use "./pages/home";
+@use "./pages/dashboard";
+@use "./pages/tournament-details";
+@use "./pages/auth";
+@use "./pages/tournaments";
+@use "./pages/create-tournament";
